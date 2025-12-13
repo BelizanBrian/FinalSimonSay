@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon Say - Contacto</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <header class="cabecera-principal">
+        <h1 class="titulo-sitio">Simón Dice</h1>
+        <nav class="navegacion-principal">
+            <a href="index.html" class="enlace-nav">Juego</a>
+        </nav>
+    </header>
+
+    <main class="contenedor-principal">
+        <section class="seccion-pantalla">
+            <div class="contenedor-formulario">
+                <h2 class="subtitulo">Contáctame</h2>
+                
+                <label for="contacto-nombre" class="etiqueta-campo">Nombre:</label>
+                <input type="text" id="contacto-nombre" class="campo-texto">
+                
+                <label for="contacto-email" class="etiqueta-campo">Email:</label>
+                <input type="email" id="contacto-email" class="campo-texto">
+                
+                <label for="contacto-mensaje" class="etiqueta-campo">Mensaje:</label>
+                <textarea id="contacto-mensaje" class="campo-area"></textarea>
+
+                <p id="mensaje-feedback" class="texto-error oculto"></p>
+                <button id="boton-enviar" class="boton-accion">Enviar Email</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/validaciones.js"></script>
+    <script src="js/contacto.js"></script>
+</body>
+</html>
