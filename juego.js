@@ -6,7 +6,7 @@ var nivel = 0;
 var puntaje = 0;
 var nombreUsuario = '';
 var colores = ['verde', 'rojo', 'amarillo', 'azul'];
-var bloqueado = false;
+var bloqueado = false; 
 
 var seccionInicio;
 var seccionJuego;
@@ -17,6 +17,7 @@ var btnReiniciar;
 var spanNombreJugador;
 var spanPuntaje;
 var spanPuntajeFinal;
+var spanNivel;
 var mensajeErrorInicio;
 var botonesColores = {};
 
@@ -32,10 +33,15 @@ function reiniciarVariables() {
     puntaje = 0;
     bloqueado = false;
     actualizarPuntajeDOM();
+    spanNivel.textContent = '1';
 }
 
 function actualizarPuntajeDOM() {
     spanPuntaje.textContent = puntaje;
+}
+
+function actualizarNivelDOM() {
+    spanNivel.textContent = nivel;
 }
 
 function iluminarColor(color) {
@@ -64,6 +70,7 @@ function reproducirSecuencia() {
 
 function siguienteNivel() {
     nivel++;
+    actualizarNivelDOM();
     var nuevoColor = obtenerColorAleatorio();
     secuenciaJuego.push(nuevoColor);
     reproducirSecuencia();
@@ -86,9 +93,10 @@ function procesarClickUsuario(e) {
         return;
     }
 
+    puntaje++;
+    actualizarPuntajeDOM();
+
     if (secuenciaUsuario.length === secuenciaJuego.length) {
-        puntaje++;
-        actualizarPuntajeDOM();
         bloqueado = true;
         setTimeout(siguienteNivel, 1000);
     }
@@ -129,7 +137,6 @@ function inicializarEventos() {
     btnJugar.addEventListener('click', iniciarJuego);
     btnReiniciar.addEventListener('click', reiniciarJuegoDesdeModal);
 
-    // Event Delegation para los colores
     var contenedorTablero = document.querySelector('.tablero-simon');
     contenedorTablero.addEventListener('click', procesarClickUsuario);
 }
@@ -147,8 +154,8 @@ function inicializarDOM() {
     spanNombreJugador = document.getElementById('nombre-jugador');
     spanPuntaje = document.getElementById('valor-puntaje');
     spanPuntajeFinal = document.getElementById('puntaje-final');
+    spanNivel = document.getElementById('valor-nivel');
 
-    // Mapeo de colores a elementos DOM
     botonesColores.verde = document.getElementById('verde');
     botonesColores.rojo = document.getElementById('rojo');
     botonesColores.amarillo = document.getElementById('amarillo');
