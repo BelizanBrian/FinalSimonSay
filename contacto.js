@@ -12,7 +12,7 @@ function enviarFormulario() {
     var mensaje = inputMensaje.value;
     var asunto = 'Contacto desde Simon Dice: ' + nombre;
     var cuerpo = 'Nombre: ' + nombre + '\nEmail: ' + email + '\n\nMensaje:\n' + mensaje;
-    var linkMailto = 'mailto:destinatario@ejemplo.com?subject=' + encodeURIComponent(asunto) + '&body=' + encodeURIComponent(cuerpo);
+    var linkMailto = 'mailto:brianleonel.belizan@alumnos.uai.edu.com?subject=' + encodeURIComponent(asunto) + '&body=' + encodeURIComponent(cuerpo);
 
     if (!Validaciones.esNombreValido(nombre)) {
         mostrarError('El nombre debe ser alfanumérico y tener al menos 3 caracteres.');
